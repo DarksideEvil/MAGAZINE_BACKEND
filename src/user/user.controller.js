@@ -1,3 +1,5 @@
+const userModel = require('./user.model');
+
 const addUser = async (req, res) => {
     const sameUser = await userModel.exists({ email: req.body.email });
     if (sameUser) {
