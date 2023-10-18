@@ -6,6 +6,7 @@ const electronicSchema = new mongoose.Schema({
         unique: true,
         minlength: 3,
         maxlength: 50,
+        trim: true,
         required: true
     },
     available: {
@@ -15,6 +16,7 @@ const electronicSchema = new mongoose.Schema({
     desc: {
         type: String,
         minlength: 2,
+        trim: true,
         required: true
     },
     rating: {
@@ -23,6 +25,8 @@ const electronicSchema = new mongoose.Schema({
     },
     type: {
         type: String,
+        lowercase: true,
+        trim: true,
         minlength: 2,
     },
     guarantee: {
@@ -39,7 +43,9 @@ const electronicSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        default: 'tech'
+        default: 'tech',
+        trim: true,
+        lowercase: true
     },
     count: {
         type: Number,

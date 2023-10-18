@@ -7,7 +7,6 @@ const userAuth = async (req, res) => {
         const ourUser = await userModel.findOne({email: req.body.email});
         if (!ourUser)
             res.status(400).send('email/password is wrong! 🙅🏻‍♂️');
-
         else {
             const isValidPswd = await bcrypt.compare(req.body.password, ourUser.password);
         if (!isValidPswd)

@@ -6,6 +6,7 @@ const foodSchema = new mongoose.Schema({
         unique: true,
         minlength: 3,
         maxlength: 50,
+        trim: true,
         required: true
     },
     available: {
@@ -15,11 +16,14 @@ const foodSchema = new mongoose.Schema({
     desc: {
         type: String,
         minlength: 2,
+        trim: true,
         required: true
     },
     type: {
         type: String,
-        minlength: 2
+        minlength: 2,
+        lowercase: true,
+        trim: true
     },
     rating: {
         type: Number,
@@ -27,7 +31,9 @@ const foodSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        default: 'food'
+        default: 'food',
+        lowercase: true,
+        trim: true
     },
     count: {
         type: Number,

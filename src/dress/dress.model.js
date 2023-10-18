@@ -6,6 +6,7 @@ const dressSchema = new mongoose.Schema({
         unique: true,
         minlength: 3,
         maxlength: 30,
+        trim: true,
         required: true
     },
     available: {
@@ -15,6 +16,7 @@ const dressSchema = new mongoose.Schema({
     desc: {
         type: String,
         minlength: 2,
+        trim: true,
         required: true
     },
     rating: {
@@ -23,10 +25,14 @@ const dressSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        minlength: 2
+        minlength: 2,
+        trim: true,
+        lowercase: true
     },
     category: {
         type: String,
+        lowercase: true,
+        trim: true,
         default: 'dress'
     },
     count: {

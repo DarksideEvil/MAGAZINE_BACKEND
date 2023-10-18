@@ -5,13 +5,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength: 3,
         maxlength: 50,
+        trim: true,
         required: true
     },
     phone: {
         type: String,
         default: null,
         minlength: 11,
-        maxlength: 14
+        maxlength: 14,
+        trim: true
     },
     silverPoint: {
         type: Number,
@@ -21,9 +23,7 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    expenses: {
-        type: []
-    },
+    expenses: {type: []},
     email: {
         type: String,
         minlength: 4,
@@ -35,13 +35,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength: 3,
         maxlength: 20,
+        lowercase: true,
+        trim: true,
         default: 'user'
     },
     password: {
         type: String,
-        required: true,
         minlength: 4,
-        maxlength: 1024
+        maxlength: 1024,
+        trim: true,
+        required: true
     }
 },{
     timestamps: true,

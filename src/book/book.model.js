@@ -6,7 +6,8 @@ const bookSchema = new mongoose.Schema({
         unique: true,
         minlength: 3,
         maxlength: 30,
-        required: true
+        required: true,
+        trim: true,
     },
     available: {
         type: Boolean,
@@ -23,7 +24,8 @@ const bookSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        default: 'book'
+        default: 'book',
+        lowercase: true
     },
     count: {
         type: Number,
