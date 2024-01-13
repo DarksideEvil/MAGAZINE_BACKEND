@@ -1,10 +1,10 @@
 {
-  "name": "backend",
+  "name": "store_backend",
   "version": "1.0.0",
   "description": "magazine's backend",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",

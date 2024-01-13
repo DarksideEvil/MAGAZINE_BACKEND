@@ -1,6 +1,7 @@
 const router = require('express').Router();
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const CLIENT_URL = process.env.CLIENT_URL;
 const { logError } = require('../setting/logs/extraLogger');
 const USERMODEL = require('../user/user.model');
 const DRESSMODEL = require('../dress/dress.model');
@@ -37,8 +38,8 @@ router.post('/checkout', async (req, res) => {
         },
         quantity: prod?.quantity
       }],
-      success_url: 'http://localhost:3000/cart',
-      cancel_url: 'http://localhost:3000/cart'
+      success_url: CLIENT_URL,
+      cancel_url: CLIENT_URL
     });
 
     if (prod.category === 'tech') {
