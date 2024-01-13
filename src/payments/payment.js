@@ -1,7 +1,7 @@
 const router = require('express').Router();
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const CLIENT_URL = process.env.CLIENT_URL;
+const FRONT_URL = process.env.FRONT_URL;
 const { logError } = require('../setting/logs/extraLogger');
 const USERMODEL = require('../user/user.model');
 const DRESSMODEL = require('../dress/dress.model');
@@ -38,8 +38,8 @@ router.post('/checkout', async (req, res) => {
         },
         quantity: prod?.quantity
       }],
-      success_url: CLIENT_URL,
-      cancel_url: CLIENT_URL
+      success_url: FRONT_URL,
+      cancel_url: FRONT_URL
     });
 
     if (prod.category === 'tech') {
